@@ -1,2 +1,2 @@
 # python-book
-- python 书籍推荐
+- fluent python
