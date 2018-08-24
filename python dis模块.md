@@ -18,6 +18,29 @@ Example:
 		6 RETURN_VALUE
 
 ```
+#### 分析功能
+- dis.code_info(x): `返回带有详细代码对象信息的格式化多行字符串`
+- dis.show_code(x，*, file = None): `将代码对象输出到文件`
+- dis.dis(x): `反汇编x对象。 x可以表示模块，类，方法，函数，生成器，异步生成器，couroutine，代码对象，源代码串或原始字节码的字节序列。会递归的反汇编嵌套代码`
+- dis.distb()
+- dis.disassemble(code)
+- dis.disco(code)
+- dis.get_instructions(x)
+- dis.findlinestarts(code)
+- dis.findlabels(code)
+- dis.stack_effect()
+---
+#### instruction 说明
+- class dis.Instruction
+	- opcode: `操作的数字代码`
+	- opname: `人类可读的操作名称`
+	- arg: `操作的数字参数`
+	- argval: `resolved arg value (if known), otherwise same as arg`
+	- argrepr: `人类可读的操作参数描述`
+	- offset: `start index of operation within bytecode sequence`
+	- starts_line: `line started by this opcode (if any), otherwise None`
+	- is_jump_target: `True if other code jumps to here, otherwise False`
+	
 #### 常用的指令 General instruction
 - NOP: `Do nothing code. Used as a placeholder by the bytecode optimizer.`
 - TOP: `Removes the top-of-stack (TOS) item.(删除栈顶项)`
