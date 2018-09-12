@@ -17,6 +17,7 @@ args = parser.parse_args()
 即可在命令行中使用 --sum 传递可选参数，以及位置参数
 
 ----
+
 #### **参数解析
 parse.add_argument()
 `add_argument(name or flags...[, action][, nargs][, const][, default][, type][, choices][, required][, help][, metavar][, dest])`
@@ -43,5 +44,14 @@ parse.add_argument()
 - choices:从一组受限制的值中选择命令行参数值，支持type做类型转换匹配
 - required:设置可选参数是否必传
 - help:帮助信息
-- metavar:
-- dest:可选参数对应的属性名称
+- metavar:使用dest值作为对象名称，位置参数直接使用dest，可选参数是大写的dest值；可以使用metavar指定参数对象名称；
+- dest:可选参数对应的属性名称,默认使用第一个长选项字符串，如果没有则使用第一个短选项字符串。
+
+#### note
+- 传值：
+	- 对于可选参数可以使用 '=' 和 ' ' 赋值，
+	- 对于短选项(选项只有一个字符长)，可以直接连在选项后面赋值
+	- 对于多个短选项，且选项不需要传参或者只有最后一个选项需要传参，则可以使用一个 '-'拼接多个多选项，并将传值也拼接到后面
+- 参数：
+	- 伪参数--告诉解析器，后面的参数都是位置参数
+	- 缩写：允许长选项缩写为前缀，如果前缀不是唯一的会报错，通过设置allow_abbrev禁用缩写参数的功能
